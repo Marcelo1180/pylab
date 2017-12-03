@@ -1,0 +1,157 @@
+EXPORTAR DICCIONARIO
+COPY (select palabra from unicas where char_length(palabra) >= 3) TO '/home/jarteaga/MARCELO/CODE/jsfonetico/code_homonimia/pylab/biz.txt' WITH DELIMITER E'\t';
+
+Corrector de python
+python corrector.py
+
+Saca las combinaciones talvez utilizar los 2 algoritmos
+perl splitwords.pl biz.txt words
+
+ssh -L 9200:192.168.43.103:9200 emendoza@geo.gob.bo
+
+
+
+
+busqueda que se deberia corregir
+python alg2.py microx mercadox superx rapidox buenox
+
+busqueda buena
+python alg2.py micro mercado super rapido bueno
+
+//---------------------------------------------------------------------
+curl -XDELETE 'http://localhost:9200/fundempresa2'
+curl -XPUT "http://localhost:9200/fundempresa2/" -d'
+{
+   "settings": {
+      "analysis": {
+         "analyzer": {
+            "merged_hyphens": {
+               "tokenizer": "whitespace",
+               "filter": [ "lowercase", "word_delim", "my_stemm"]
+            },
+            "x_fonetico": {
+               "tokenizer": "whitespace",
+               "filter": [ "lowercase", "word_delim", "my_stemm", "my_metaphone"]
+            },
+            "x_sinonimo" : {
+               "tokenizer": "whitespace",
+               "filter": [ "lowercase", "word_delim", "my_stemm", "my_metaphone", "my_synonym"]
+            }
+         },
+         "filter": {
+            "word_delim": {
+               "type": "word_delimiter",
+               "catenate_words": true,
+               "generate_word_parts": false,
+               "generate_number_parts": false
+            },
+            "my_stemm": {
+               "type": "stemmer",
+               "language": "light_spanish"
+            },
+            "my_metaphone": {
+               "type": "phonetic",
+               "encoder": "beidermorse",
+               "languageset": ["spanish"]
+            },
+            "my_synonym" : {
+               "type" : "synonym",
+               "synonyms_path" : "/home/jarteaga/MARCELO/CODE/jsfonetico/code_homonimia/pylab/synonym.txt"
+            }
+         }
+      }
+   },
+   "mappings": {
+      "empresa": {
+         "properties": {
+             "id_matricula": {
+                "type": "text"
+             },
+            "nombre": {
+               "type": "string",
+               "fields": {
+                  "merged": {
+                     "type": "string",
+                     "analyzer": "merged_hyphens"
+                  },
+                  "fonetico": {
+                     "type": "string",
+                     "analyzer": "x_fonetico"
+                  },
+                  "sinonimo": {
+                     "type": "string",
+                     "analyzer": "x_sinonimo"
+                  }
+               }
+            },
+            "estado": {
+               "type": "text"
+            }
+         }
+      }
+   }
+}'
+
+
+
+ssh notariado@192.168.43.103
+/etc/logstash/conf.d/logstash-jdbc.conf
+output {
+  elasticsearch {
+      index => "fundempresa"
+      document_type => "empresa"
+      document_id => "%{id_matricula}"
+      hosts => "ip-del-servidor-elastic:9200"
+  }
+  elasticsearch {
+      index => "fundempresa2"
+      document_type => "empresa"
+      document_id => "%{id_matricula}"
+      hosts => "ip-del-servidor-elastic:9200"
+  }
+}
+
+
+
+{
+  "query": {
+    "bool": {
+      "must": [
+      	{
+          "match": {
+            "nombre": {
+              "query": "Diseño",
+              "operator": "and"
+            }
+          }
+        },
+        {
+          "match": {
+            "estado": "MA"
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "match": {
+            "nombre": ""
+          }
+        }
+      ],
+      "should": [
+        {
+          "match": {
+            "nombre": ""
+          }
+        }
+      ],
+      "filter": [
+        {
+          "match": {
+            "nombre": ""
+          }
+        }
+      ]
+    }
+  }
+}

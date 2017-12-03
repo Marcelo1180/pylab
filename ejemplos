@@ -1,0 +1,195 @@
+{
+    "nombreValido": false,
+    "mensaje": "El nombre no puede ser utilizado.",
+    "datos": [
+        {
+            "empresa": "COMIDA FOOD 1 DE MAYO",
+            "rating": 1.1
+        },
+        {
+            "empresa": "MR. FOOD S.R.L.",
+            "rating": 1.1
+        },
+        {
+            "empresa": "LA GRANJA FAST FOOD",
+            "rating": 1.1
+        },
+        {
+            "empresa": "FOOD'S C&A",
+            "rating": 1.1
+        },
+        {
+            "empresa": "FOOD HOUSE",
+            "rating": 1.1
+        },
+        {
+            "empresa": "GREEN FOOD",
+            "rating": 1.1
+        },
+        {
+            "empresa": "FULL FOOD",
+            "rating": 1.1
+        },
+        {
+            "empresa": "FOOD LAB",
+            "rating": 1.1
+        },
+        {
+            "empresa": "DELIVERY BIG FOOD",
+            "rating": 1.1
+        },
+        {
+            "empresa": "R&W AMERICAN FOOD",
+            "rating": 1.1
+        },
+"nombre":"venta BEEF FAST FOOD",
+        {
+            "empresa": "FOOD KING ALIMENTOS Y BEBIDAS",
+            "rating": 1.1
+        },
+        {
+            "empresa": "BEST FOOD IMPORT",
+            "rating": 1.1
+        },
+        {
+            "empresa": "ALTA - TERRA FAST FOOD",
+            "rating": 1.1
+        },
+        {
+            "empresa": "FACTORY FOOD S.R.L.",
+            "rating": 1.1
+        },
+        {
+            "empresa": "ANDES FOOD S.R.L.",
+            "rating": 1.1
+        },
+        {
+            "empresa": "SMART FOOD S.R.L.",
+            "rating": 1.1
+        },
+        {
+            "empresa": "NATURAL FOOD S.R.L.",
+            "rating": 1.1
+        },
+        {
+            "empresa": "M & F MUSIC AND FOOD",
+            "rating": 1.1
+        },
+        {
+            "empresa": "EMPRESA DE ALIMENTOS MASTER FOOD S.R.L.",
+            "rating": 1.1
+        },
+        {
+            "empresa": "SERVICIOS GASTRONOMICOS FOOD & SERVICE S.R.L.",
+            "rating": 1.1
+        },
+        {
+            "empresa": "J. SERVICE FOOD S.R.L.",
+            "rating": 1.1
+        },
+        {
+            "empresa": "QUALITY FOOD INTERNATIONAL S.R.L.",
+            "rating": 1.1
+        },
+        {
+            "empresa": "FOOD SOLUTIONS GROUP S.R.L.",
+            "rating": 1.1
+        },
+        {
+            "empresa": "INDUSTRIA ALIMENTICIA BIO FOOD S.R.L.",
+            "rating": 1.1
+        },
+        {
+            "empresa": "QUIZ - FAST FOOD",
+            "rating": 1
+        },
+        {
+            "empresa": "FAST FOOD S.R.L.",
+            "rating": 1
+        },
+        {
+            "empresa": "WOW FAST-FOOD",
+            "rating": 1
+        },
+        {
+            "empresa": "BEEF FAST FOOD",
+            "rating": 1
+        },
+        {
+            "empresa": "SAGA \"FAST FOOD\"",
+            "rating": 1
+        },
+        {
+            "empresa": "911 FAST FOOD",
+            "rating": 1
+        },
+        {
+            "empresa": "CAST FAST FOOD",
+            "rating": 1
+        },
+        {
+            "empresa": "FOODS COMPANY S.A.",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "GOLD FOODS S.R.L.",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "AGROPECUARIA DEL SOL FOODS S.A.",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "LAND FOODS S.R.L.",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "SIMPLE FOODS",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "BOLIVIAN FOODS SOCIEDAD ANONIMA BOLIVIAN FOODS S.A.",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "TECNO FOODS S.R.L. SUCURSAL BOLIVIA",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "L&S FOODS INDUSTRIA ALIMENTICIA",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "GOLDEN FOODS S.R.L.",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "ALTA FOODS",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "EMPRESA \"LA PAZ FOODS, INDUSTRIA Y COMERCIO S.R.L.\"",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "TECNO-FOODS",
+            "rating": 0.8571428571428571
+        },
+        {
+            "empresa": "FOD CONSTRUCTORA",
+            "rating": 0.8
+        },
+        {
+            "empresa": "FOODIE LAB S.R.L.",
+            "rating": 0.75
+        },
+        {
+            "empresa": "FOODSA INDUSTRIAL S.R.L.",
+            "rating": 0.75
+        },
+        {
+            "empresa": "COMERCIALIZADORA Y DISTRIBUIDORA FODA",
+            "rating": 0.5
+        }
+    ]
+}
