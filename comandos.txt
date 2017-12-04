@@ -11,6 +11,20 @@ ssh -L 9200:192.168.43.103:9200 emendoza@geo.gob.bo
 
 
 
+python postman.py universidad x,0124:1024:1023,tecnologia
+['x']
+['x']
+xsearch: universidad x
+bsearch: (((universidad~) OR (universidad~)) AND ((10) OR (diez) OR (x))) OR (((universidadx~)))
+ciiu: ['0124', '1024', '1023']
+pobjeto: tecnologia~
+
+
+
+
+
+
+
 
 busqueda que se deberia corregir
 python alg2.py microx mercadox superx rapidox buenox

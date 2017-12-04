@@ -1,26 +1,11 @@
-# https://stackoverflow.com/questions/2174093/detect-most-likely-words-from-text-without-spaces-combined-words
 #!/usr/bin/python
 import sys
-from time import time as t
+from libs.numeros.numbers_convert import Numbers
 
 
 class BooleanSearch:
     wordList = open('biz.txt','r').read().split()
     _words = set(s.lower() for s in wordList)
-
-    def _fakeNumber(n):
-        if n == "x":
-            return ["diez~", "x","10"]
-        elif n == "cien":
-            return ["cien~", "xxx", "100"]
-        elif n == "100":
-            return ["cien~", "xxx", "100"]
-        elif n == "doscientos":
-            return ["doscientos~", "xlx", "200"]
-        elif n == "200":
-            return ["doscientos~", "xlx", "200"]
-        else:
-            return []
 
     def _xrange(x,y):
         return iter(range(x,y))
@@ -40,11 +25,13 @@ class BooleanSearch:
         wres = []
         for ws in w.split(" "):
             wdat = []
-            # Comprobano si la palabra es numero, caso contrario enviar la palabra con fuzzy
-            wnumero = BooleanSearch._fakeNumber(ws)
+            # Comprobano si la palabra es numero,
+            #  caso contrario enviar la palabra con fuzzy
+            wnumero = Numbers.convert(ws)
             wdat += [[n] for n in wnumero] if len(wnumero) > 0 else [[ws+"~"]]
             # Agregando Palabra Descompuesta en los elementos de splitString
-            wdat += list(map(lambda x: [a+"~" for a in x], BooleanSearch._splitString(ws)))
+            wdat += list(map(lambda x: [a+"~" for a in x],\
+             BooleanSearch._splitString(ws)))
             wres.append(wdat)
         return wres
 
@@ -56,7 +43,10 @@ class BooleanSearch:
         for i in range(2,wlen+1):
             for j in range(0,wlen+1-i):
                 # TODO: aeromundo y mundoaereo si se puede
-                wres.append(warr[:j]+["".join(warr[j:i+j])]+warr[i+j:])
+                print(list(filter(lambda l: len(l) <= 3,warr[j:i+j])))
+                # 
+                cword = ["".join(warr[j:i+j])]
+                wres.append(warr[:j]+cword+warr[i+j:])
         return wres
 
 
