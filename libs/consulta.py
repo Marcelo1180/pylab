@@ -28,7 +28,9 @@ class BooleanSearch:
             # Comprobano si la palabra es numero,
             #  caso contrario enviar la palabra con fuzzy
             wnumero = Numbers.convert(ws)
-            wdat += [[n] for n in wnumero] if len(wnumero) > 0 else [[ws+"~"]]
+            # wdat += [[n] for n in wnumero] if len(wnumero) > 0 else [[ws+"~"]]
+            wdat += [[n] for n in wnumero] if len(wnumero) > 0\
+             else [[ws[:-1] if "_" in ws else ws]]
             # Agregando Palabra Descompuesta en los elementos de splitString
             wdat += list(map(lambda x: [a+"~" for a in x],\
              BooleanSearch._splitString(ws)))
@@ -39,14 +41,23 @@ class BooleanSearch:
         warr = w.split(" ")
         wlen = len(warr)
         wres = []
-        wres.append(warr)
+        wres.append([wa for wa in warr])
+        print(warr)
         for i in range(2,wlen+1):
             for j in range(0,wlen+1-i):
                 # TODO: aeromundo y mundoaereo si se puede
-                print(list(filter(lambda l: len(l) <= 3,warr[j:i+j])))
-                # 
-                cword = ["".join(warr[j:i+j])]
-                wres.append(warr[:j]+cword+warr[i+j:])
+                wunion = warr[j:i+j]
+                print(wunion)
+                # Buscando los elementos menores depues de la palabra mas grande
+                # por que en el fuzzy match se raya tiene que ser mayo a 2 siempre
+                cwif = len("".join(sorted(wunion, key=len, reverse=True)[1:]))
+                # print(cwif)
+                # print("".join(list(filter(lambda l: len(l) <= 2,warr[j:i+j]))))
+                # print(cwif)
+                #
+                cword = "".join(warr[j:i+j])
+                # print(warr[j:i+j].sort(key = lambda s: len(s)))
+                wres.append(warr[:j]+[cword+"_" if cwif > 2 else cword]+warr[i+j:])
         return wres
 
 
@@ -59,6 +70,7 @@ class BooleanSearch:
         cor = []
         for c in BooleanSearch._combineWords(uinput):
             cand = []
+            print("=>",c)
             for t in BooleanSearch._splitWords(" ".join(c)):
                 kor = []
                 for kand in t:

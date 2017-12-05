@@ -22,7 +22,12 @@ class Buscar:
                                 #   "nombre.numero"
                                ],
                             #    "query":"(((universidad~) OR (universidad~)) AND ((10) OR (diez) OR (x))) OR (((universidad~)))",
-                               "query":"(((universidad000~)))",
+                            #    "query":"(((universidad100~)))",
+                            #    "query":"(((universidad) OR (universidad~)) AND ((siglo) OR (siglo~)) AND ((10) OR (diez) OR (x)))",
+                                # OR (((universidadsiglo)) AND ((10) OR (diez) OR (x))) OR (((universidad) OR (universidad~)) AND ((siglox)))\
+                            #    "query":"(((universidadsiglo10)))",
+                            #    "query":"(((universidadsiglox)))",
+                               "query":"nombre.numero:universidadsiglox",
                                "boost":3
                             }
                          },
