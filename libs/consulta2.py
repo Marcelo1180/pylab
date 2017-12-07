@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sys
-from .numeros.numbers_convert import Numbers
+from libs.numeros.numbers_convert import Numbers
 
 
 class BooleanSearch:
@@ -10,7 +10,6 @@ class BooleanSearch:
     def _xrange(x,y):
         return iter(range(x,y))
 
-    # Funcion que basado en un diccionario puede separar palabras
     def _splitString(s):
         found = []
         def rec(stringLeft, wordsSoFar):
@@ -22,49 +21,39 @@ class BooleanSearch:
         rec(s.lower(), [])
         return found
 
-    # Funcion para recorrer las palabra de la cadena, haciendo sugerencias
-    # numericas y palabras descompuestas
     def _splitWords(w):
         wres = []
         for ws in w.split(" "):
             wdat = []
-            # Convertir texto a numero o romano
-            # si es correcto devolvera un array caso contrario [] falso
-            wnumero = Numbers.convert(ws)
-            # Eliminando conectores numericos "y", y agrupando numero y AND
-            if wnumero:
-                wnumero[1] = "(%s)" % " AND ".join(wnumero[1].\
-                 replace(" y ", " ").split(" "))
             # Comprobano si la palabra es numero,
             #  caso contrario enviar la palabra con fuzzy
-            wdat += [["nombre:"+n] for n in wnumero] if wnumero\
-             else [[ws+"~"]]
+            wnumero = Numbers.convert(ws)
+            wdat += [[n] for n in wnumero] if len(wnumero) > 0 else [[ws+"~"]]
             # Agregando Palabra Descompuesta en los elementos de splitString
-            # si la palabra sugerida es numero se debe colocar nombre: para,
-            # que sea exacto
-            wdat += list(map(lambda x: ["nombre:"+a if a.isdigit() else a+"~" for a in x],\
+            wdat += list(map(lambda x: [a+"~" for a in x],\
              BooleanSearch._splitString(ws)))
             wres.append(wdat)
         return wres
 
-    # Funcion para combinacion de palabras a b c, ab c, a bc, abc
     def _combineWords(w):
-        xwarr = w.split(" ")
-        # Se extrae la lista de palabras que no contienen numeros
-        warr = list(filter(lambda l: not l.isdigit(),xwarr))
-        # Se extrae una lista de numeros
-        warr_numbers = list(filter(lambda l: l.isdigit(),xwarr))
+        warr = w.split(" ")
         wlen = len(warr)
         wres = []
-        wres.append([wa for wa in xwarr])
+        wres.append(warr)
         for i in range(2,wlen+1):
             for j in range(0,wlen+1-i):
-                # Comibinacion de elementos aero mundo => aereomundo
+                # TODO: aeromundo y mundoaereo si se puede
+                # print(list(filter(lambda l: len(l) <= 3,warr[j:i+j])))
+                #
                 cword = ["".join(warr[j:i+j])]
-                wres.append(warr[:j]+cword+warr[i+j:]+warr_numbers)
+                wres.append(warr[:j]+cword+warr[i+j:])
         return wres
 
-    # Funcion principal para la generacion de consultas
+
+    def correctionWords(l):
+        for e in l:
+            print(eword.suggest(e))
+
     @staticmethod
     def query(uinput=""):
         cor = []
