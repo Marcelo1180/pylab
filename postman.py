@@ -12,10 +12,13 @@ from libs.consulta import BooleanSearch
 
 if __name__ == "__main__":
     xinput = " ".join(sys.argv[1:])
-    uinput, uciiu, upobjeto = xinput.split(",")
-    uciiu = uciiu.split(":")
-    upobjeto = upobjeto.split(" ")
-    upobjeto = " OR ".join([w+"~" for w in upobjeto])
+    # uinput, uciiu, upobjeto = xinput.split(",")
+    # uciiu = uciiu.split(":")
+    # upobjeto = upobjeto.split(" ")
+    # upobjeto = " OR ".join([w+"~" for w in upobjeto])
+    uinput = xinput
+    uciiu = ""
+    upobjeto = ""
     response = Buscar.search(uinput, uciiu, upobjeto)
     xhead = "\n".join([
         "xsearch: %s" % uinput,

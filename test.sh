@@ -9,12 +9,12 @@ curl -XPUT "http://localhost:9200/test" -d'
                "filter": ["lowercase", "word_delim", "my_stemm"]
             },
             "x_fonetico": {
-               "tokenizer": "keyword",
+               "tokenizer": "whitespace",
                "filter": ["lowercase", "word_delim", "my_stemm", "my_metaphone"]
             },
             "x_sinonimo" : {
                "tokenizer": "whitespace",
-               "filter": ["lowercase", "my_synonym"]
+               "filter": ["lowercase", "my_stemm", "my_synonym"]
             },
             "x_numero" : {
                "tokenizer": "keyword",
@@ -228,7 +228,7 @@ curl -XPUT "http://localhost:9200/test/test/15" -d'
 
 curl -XPUT "http://localhost:9200/test/test/16" -d'
 {
-    "nombre": "tiwanacu tour"
+    "nombre": "tiwanacu tours"
 }'
 
 curl -XPUT "http://localhost:9200/test/test/17" -d'
@@ -284,4 +284,214 @@ curl -XPUT "http://localhost:9200/test/test/26" -d'
 curl -XPUT "http://localhost:9200/test/test/27" -d'
 {
     "nombre": "universidad siglo x"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/28" -d'
+{
+    "nombre": "universidad siglo x"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/29" -d'
+{
+    "nombre": "CENTRO INFANTIL AMOR FRATERNAL"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/30" -d'
+{
+    "nombre": "VALENTIN HOTEL"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/31" -d'
+{
+    "nombre": "RADIO KOLLASUYO MARKA"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/32" -d'
+{
+    "nombre": "GRAFCOM"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/33" -d'
+{
+    "nombre": "GRUPO QALIDAD"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/34" -d'
+{
+    "nombre": "HOTEL TAYPIKALA"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/35" -d'
+{
+    "nombre": "FERRRETERIA YAPA-CANI"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/36" -d'
+{
+    "nombre": "FABRICA DE BALONES \"ORIENTE\""
+}'
+
+curl -XPUT "http://localhost:9200/test/test/37" -d'
+{
+    "nombre": "PESCADOS DE ORIENTE"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/38" -d'
+{
+    "nombre": "COMERCIAL GAFANOE"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/39" -d'
+{
+    "nombre": "BARRACA MIL AÑOS"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/40" -d'
+{
+    "nombre": "HELADERIA KIVON SRL"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/41" -d'
+{
+    "nombre": "CASA DEL CELULAR"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/42" -d'
+{
+    "nombre": "ALOJAMIENTO \"CARANAVI\""
+}'
+
+curl -XPUT "http://localhost:9200/test/test/43" -d'
+{
+    "nombre": "EMPRESA DE TRANSPORTES INTERNACIONAL DE CARGA \"SAN ELIAS\" S.R.L."
+}'
+
+curl -XPUT "http://localhost:9200/test/test/44" -d'
+{
+    "nombre": "TIWANACU TOURS"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/45" -d'
+{
+    "nombre": "VETERINARIA DOG HAPPY"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/46" -d'
+{
+    "nombre": "CIEN POR CIENTO IMAGEN"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/47" -d'
+{
+    "nombre": "FERRETERIA 12 DE JULIO"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/48" -d'
+{
+    "nombre": "SILLONES CORONA"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/49" -d'
+{
+    "nombre": "SNACK WARA"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/50" -d'
+{
+    "nombre": "SERVICIOS GENERALES SANTA CRUZ SIGLO 21"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/51" -d'
+{
+    "nombre": "SEA CAR SEA - TRADE EXPRESS AIR SEA CARGO WORLD S.R.L."
+}'
+
+curl -XPUT "http://localhost:9200/test/test/52" -d'
+{
+    "nombre": "WWW.BOLIVIANEGOCIOS.COM"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/53" -d'
+{
+    "nombre": "CARNICERIA \"CONDORITO\""
+}'
+
+curl -XPUT "http://localhost:9200/test/test/54" -d'
+{
+    "nombre": "IMPORTODO BOLIVIANA"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/55" -d'
+{
+    "nombre": "MENMAC"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/56" -d'
+{
+    "nombre": "DELY PIZZA"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/57" -d'
+{
+    "nombre": "CROCANTITOS Y SABROSOS"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/58" -d'
+{
+    "nombre": "REPOSTERIA DOLCE VITA"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/59" -d'
+{
+    "nombre": "TAPICERIA LAS TRES HERMANAS"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/60" -d'
+{
+    "nombre": "DM HOTELES"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/61" -d'
+{
+    "nombre": "INSIDE CLUB"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/62" -d'
+{
+    "nombre": "ALOJAMIENTO \"CARANAVI\""
+}'
+
+curl -XPUT "http://localhost:9200/test/test/63" -d'
+{
+    "nombre": "EMPRESA DE TRANSPORTES INTERNACIONAL DE CARGA \"SAN ELIAS\" S.R.L."
+}'
+
+curl -XPUT "http://localhost:9200/test/test/64" -d'
+{
+    "nombre": "Rauls"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/65" -d'
+{
+    "nombre": "ASERRADERO Y BARRACA EL ARBOLITO EL ARBOLITO CONSULTORA CONSTRUCTORA ARVOLITO"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/66" -d'
+{
+    "nombre": "FERRETERIA CRUZ AZUL CRUZ AZUL S.A. \"CRUZ AZUL\" CONSTRUCCIONES Y SERVICIOS CLINICA CRUZ AZUL FARMACIA \"CRUZ AZUL\""
+}'
+
+curl -XPUT "http://localhost:9200/test/test/67" -d'
+{
+    "nombre": "JETCBBA SERVICIOS"
+}'
+
+curl -XPUT "http://localhost:9200/test/test/68" -d'
+{
+    "nombre": "COMPAÑIA SADEC CBBA S.R.L."
+}'
+
+curl -XPUT "http://localhost:9200/test/test/69" -d'
+{
+    "nombre": "SMARTFOOD""
 }'
