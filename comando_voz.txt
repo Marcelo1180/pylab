@@ -1,0 +1,125 @@
+https://www.youtube.com/watch?v=yueJDKRTil4
+https://www.evobanco.com/servicios-digitales/smartphone-banking/comandos-de-voz/
+
+
+Paginas buenas para python
+https://pybonacci.org/
+https://pythoniza.me/
+
+Compara ondas de sonido
+https://pybonacci.es/2012/09/29/transformada-de-fourier-discreta-en-python-con-scipy/
+Comandos de voz
+https://support.microsoft.com/es-bo/help/12427/windows-speech-recognition-commands
+https://wwwhatsnew.com/2015/08/03/25-comandos-de-voz-para-usar-con-cortana-en-espanol/
+Ejemplo en python
+https://pythonspot.com/en/personal-assistant-jarvis-in-python/
+Ejemplo convertir a mp3
+https://stackoverflow.com/questions/39232150/python-speech-recognition-error-converting-mp3-file
+Ejemplo de conversion texto
+https://pythonspot.com/speech-recognition-using-google-speech-api/
+
+Convertir texto a voz el mejor gratuito
+https://ttsreader.com/online-reader/
+
+Interfaz de lenguaje natural
+
+* GAIA, GAIA estas ahi
+  - Te escucho
+  - Buenas noches jefe, Buenas Tardes jefe, Buenos dias jefe
+  - Bienvenido señor
+    - Felicidades por el exito de ayer XXX y debo agregar q el clima
+    - Felicidades en la medicion de peso indica que bajo 3 kilos señor
+  - La bateria de la computadora esta al 50% <- o buscar una accion que amerite relevancia
+  - A sus ordenes señor
+    - Prueba de test unitarios en travis resultaron exitosamente
+    - Los test unitarios no salieron satisfactorios estan al 80%
+      - Sube a produccion
+        - Señor debo advertirle que no es recomendable las pruebas no pasaron la prueba minima del 40%
+        - Señor debo advertirle que no es recomendable aun esstan corriendo las pruebas de test y terminaran en aproximandamente 10 min
+          - Es importante hay que subirlo ya!, subelo a produccion
+            - Creando backups de cambios y actualizando el servidor
+  - Salio un nuevo capitulo de su pelicula favorita
+
+* Gaia busca un punto debil a ese servidor | escanea los protocolos abiertos
+  - analiza su ip publica
+    - la ip publica corresponde a estados unidos, y esta ip publica se encuentra en listas negras de nslookup
+  - escaneando
+    - escaneo de protocolos listo
+      - leemelos porfavor
+      - enviamelos a mi correo electrónico
+      - compartelo a el grupo de whatsapp
+
+* Gaia conoces la busqueda de contenido
+  - he no la conozco, pero encontre la definicion en wikipedia
+    - leemela porfavor
+    - lee porfavor
+
+* Gaia y mi reporte de estado de subida al servidor
+  - trabajo en ello señor, sin embargo el proceso esta tardando mas de lo normal
+    - abre la ventana del proyecto
+    - muestrame la pagina web de travis
+    - mUestrame las estadisticas de analisis que realizaste
+    - muestrame los tiempos
+
+
+* Gaia busca remedios para el dolor de cabeza
+* Gaia busca en mi wiki todo lo referente a tmux y su instalacion
+* Gaia como esta el clima hoy
+  - La temperatura maxima alcanzara los 50 grados se le recomienda ir con ropa abrigada y usar paraguas
+* Gaia serias tan amable de (indicarme la memoria del servidor donde esta instalado el sistema de homonimia) (ejecutar los test unitarios del proyecto X) (sube a produccion la rama X)
+  - Subida de la rama x4.3 completado señor
+  - Existen nuevos cambios en los microservicios, quiere que los actualize tambien?
+  - El elemento de memoria en ese servidor no lo puedo cuantificar, seria tan amable de darme acceso
+* Gaia la comida
+  - Jefe debe comer los siguientes alimentos para su dieta de hoy
+* Gaia a llegado la hora
+  - Desea subir el proyecto XYZ a produccion, señor
+    - Si
+    - Correcto
+      - Desea que haga un merge automatico a la rama master?
+        - Si
+        - No lo hare manualmente gracias
+* Gaia calcula la distancia en horas desde XYA hasta XYU
+  - Si señor
+    - La distancia es de 50 horas
+      - Gracias
+        - Por nada señor
+
+* Gaia
+  - Si señor
+    - Create una carpeta de test
+      - Que entradas desea probar?
+        - La entrada "Probar prueba de excripto 32"
+    - Busca y reemplaza el texto "arriba" por "arribo", en las lineas 32 al 34
+    - Copia las lineas del 32 al 45
+
+
+
+* DISTRACCION
+  - Que idea tiene de mi
+    - Te imagino peliroja
+      - Me parece que piensa en otra
+  - Señor me place recordale que tiene una actividad pendiente en 50min
+  - He hecho simulaciones del siguiente proyecto
+  - Potencia de la laptop al 7%, grabe los estados de tmux y sincronize los proyectos activos señor
+  - Señor porfavor permitame unos minutos para ejecutar los test unitarios de todos sus proyectos pendientes
+    - Ok realizalos
+    - Ya bueno
+    - No
+    - Ya
+    - Si
+      - he preparado tambien la documentacion de funciones para que las lea, aproximadamente le tardara en leer unos 5 min
+        - le hago recuerdo cuando tome el minibus?
+          - Ok, gracias
+  - Señor le recuerdo que tiene que leer el siguiente documento XX
+    - ok pasamelo
+    - No estoy cansado
+      - ok, señor
+  - Señor realize un cronograma tentativo de actividades a desarrollar
+    - ok super, leemelo porfavor
+    - ok gracias, leemelo porfavor
+
+
+
+
+
