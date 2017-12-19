@@ -22,6 +22,19 @@ pobjeto: tecnologia~
 
 
 
+TODO
+Se debe enviar
+(vendiendo~ OR vendiendo)
+
+vendiendo
+traera ventas venta
+el fuzzy no trabaja junto con el stemmer
+
+vendiendo~
+traera ventiendo
+
+
+
 
 
 

@@ -9,12 +9,12 @@ curl -XPUT "http://localhost:9200/fundempresa2" -d'
                "filter": ["lowercase", "word_delim", "my_stemm"]
             },
             "x_fonetico": {
-               "tokenizer": "keyword",
+               "tokenizer": "whitespace",
                "filter": ["lowercase", "word_delim", "my_stemm", "my_metaphone"]
             },
             "x_sinonimo" : {
                "tokenizer": "whitespace",
-               "filter": ["lowercase", "my_stemm", "my_synonym"]
+               "filter": ["lowercase", "word_delim", "my_synonym"]
             },
             "x_numero" : {
                "tokenizer": "keyword",
@@ -39,13 +39,55 @@ curl -XPUT "http://localhost:9200/fundempresa2" -d'
             },
             "my_synonym" : {
                "type" : "synonym",
-               "synonyms_path" : "/tmp/sinonimos.txt"
+               "synonyms_path" : "/tmp/sinonimos_old.txt"
             }
          }
       }
    },
    "mappings": {
-      "test": {
+      "empresa": {
+         "properties": {
+            "nombre": {
+               "type": "string",
+               "fields": {
+                  "merged": {
+                     "type": "string",
+                     "analyzer": "merged_hyphens"
+                  },
+                  "fonetico": {
+                     "type": "string",
+                     "analyzer": "x_fonetico"
+                  },
+                  "sinonimo": {
+                     "type": "string",
+                     "analyzer": "x_sinonimo"
+                  },
+                  "numero": {
+                     "type": "string",
+                     "analyzer": "x_numero"
+                  }
+               }
+            },
+            "objeto_principal": {
+               "type": "string",
+               "fields": {
+                  "merged": {
+                     "type": "string",
+                     "analyzer": "merged_hyphens"
+                  },
+                  "fonetico": {
+                     "type": "string",
+                     "analyzer": "x_fonetico"
+                  },
+                  "sinonimo": {
+                     "type": "string",
+                     "analyzer": "x_sinonimo"
+                  }
+               }
+            }
+         }
+      },
+      "reserva": {
          "properties": {
             "nombre": {
                "type": "string",

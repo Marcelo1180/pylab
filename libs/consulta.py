@@ -1,18 +1,45 @@
 #!/usr/bin/python
+"""Este modulo genera consultas mediante operadores logicos."""
+
 import sys
 from .numeros.numbers_convert import Numbers
 
 
 class BooleanSearch:
-    wordList = open('biz.txt','r').read().split()
+    """Es una clase estatica BooleanSearch."""
+
+    wordList = open('biz.txt', 'r').read().split()
     _words = set(s.lower() for s in wordList)
 
-    def _xrange(x,y):
-        return iter(range(x,y))
+    @staticmethod
+    def _xrange(x, y):
+        """Funcion Auxiliar _xrange.
 
-    # Funcion que basado en un diccionario puede separar palabras
+        Parametros:
+            :param x: inicio
+            :param y: fin
+
+        Respuesta:
+            Retorna la iteracion en el rango x, y
+
+        """
+        return iter(range(x, y))
+
+    @staticmethod
     def _splitString(s):
+        """Funcion Auxiliar _splitString.
+
+        Funcion que basado en un diccionario puede separar palabras
+
+        Parametros:
+            :param s: Palabra string
+
+        Respuesta:
+            Retorna la palabra en una lista descompuesta en subpalabras
+
+        """
         found = []
+
         def rec(stringLeft, wordsSoFar):
             if not stringLeft:
                 found.append(wordsSoFar)
@@ -22,63 +49,99 @@ class BooleanSearch:
         rec(s.lower(), [])
         return found
 
-    # Funcion para recorrer las palabra de la cadena, haciendo sugerencias
-    # numericas y palabras descompuestas
+    @staticmethod
     def _splitWords(w):
+        """Funcion Auxiliar _splitWords.
+
+        Funcion para recorrer las palabra de la cadena, haciendo sugerencias
+        numericas y palabras descompuestas
+
+        Parametros:
+            :param w:
+
+        Respuesta:
+            Retorna la cadena descompuesta en una lista.
+
+        """
         wres = []
-        for ws in w.split(" "):
+        for words in w.split(' '):
             wdat = []
             # Convertir texto a numero o romano
             # si es correcto devolvera un array caso contrario [] falso
-            wnumero = Numbers.convert(ws)
+            wnumero = Numbers.convert(words)
             # Eliminando conectores numericos "y", y agrupando numero y AND
             if wnumero:
-                wnumero[1] = "(%s)" % " AND ".join(wnumero[1].\
-                 replace(" y ", " ").split(" "))
+                wnumero[1] = '(%s)' % ' AND '.join(wnumero[1].
+                                                   replace(' y ', ' ').
+                                                   split(' '))
             # Comprobano si la palabra es numero,
             #  caso contrario enviar la palabra con fuzzy
-            wdat += [["nombre:"+n] for n in wnumero] if wnumero\
-             else [[ws+"~"]]
+            wdat += [['nombre:'+n] for n in wnumero] if wnumero else [[words +
+                                                                       '~']]
             # Agregando Palabra Descompuesta en los elementos de splitString
             # si la palabra sugerida es numero se debe colocar nombre: para,
             # que sea exacto
-            wdat += list(map(lambda x: ["nombre:"+a if a.isdigit() else a+"~" for a in x],\
-             BooleanSearch._splitString(ws)))
+            wdat += list(map(lambda x: ['nombre:'+a if a.isdigit()
+                                        else a+'~' for a in x],
+                             BooleanSearch._splitString(words)))
             wres.append(wdat)
         return wres
 
-    # Funcion para combinacion de palabras a b c, ab c, a bc, abc
-    def _combineWords(w):
-        xwarr = w.split(" ")
+    @staticmethod
+    def _combineWords(word):
+        """Funcion Auxiliar _combineWords.
+
+        Funcion para combinacion de palabras a b c, ab c, a bc, abc
+
+        Parametros:
+            :param word: String de palabras a combinar
+
+        Respuesta:
+            Devuelve una lista con las palabras combinadas
+
+        """
+        xwarr = word.split(' ')
         # Se extrae la lista de palabras que no contienen numeros
-        warr = list(filter(lambda l: not l.isdigit(),xwarr))
+        warr = list(filter(lambda l: not l.isdigit(), xwarr))
         # Se extrae una lista de numeros
-        warr_numbers = list(filter(lambda l: l.isdigit(),xwarr))
+        warr_numbers = list(filter(lambda l: l.isdigit(), xwarr))
         wlen = len(warr)
         wres = []
         wres.append([wa for wa in xwarr])
-        for i in range(2,wlen+1):
-            for j in range(0,wlen+1-i):
-                # Comibinacion de elementos aero mundo => aereomundo
-                cword = ["".join(warr[j:i+j])]
+        for i in range(2, wlen+1):
+            for j in range(0, wlen+1-i):
+                # Combinacion de elementos aero mundo => aereomundo
+                cword = [''.join(warr[j:i+j])]
                 wres.append(warr[:j]+cword+warr[i+j:]+warr_numbers)
         return wres
 
-    # Funcion principal para la generacion de consultas
     @staticmethod
-    def query(uinput=""):
-        cor = []
-        for c in BooleanSearch._combineWords(uinput):
-            cand = []
-            for t in BooleanSearch._splitWords(" ".join(c)):
-                kor = []
-                for kand in t:
-                    kor.append("(%s)" % " AND ".join(kand))
-                cand.append("(%s)" % " OR ".join(kor))
-            cand = list(filter(lambda l: l != "()",cand))
-            cor.append("(%s)" % " AND ".join(cand))
-            cor = list(filter(lambda l: l != "()",cor))
-        return " OR ".join(cor)
+    def query(uinput=''):
+        """Funcion Principal query.
 
-if __name__ == "__main__":
-    print(BooleanSearch.query(" ".join(sys.argv[1:])))
+        Funcion para la generacion de consultas con operadores logicos
+
+        Parametros:
+            :param uinput: Requiere la entrada de un texto para descomponerlo
+                en atributos para busqueda con operadores logicos.
+
+        Respuesta:
+            Retorna la cadena descompuesta con operadores logicos.
+
+        """
+        cor = []
+        for cword in BooleanSearch._combineWords(uinput):
+            cand = []
+            for sword in BooleanSearch._splitWords(' '.join(cword)):
+                kor = []
+                for kand in sword:
+                    kor.append('(%s)' % ' AND '.join(kand))
+                cand.append('(%s)' % ' OR '.join(kor))
+            cand = list(filter(lambda item: item != '()', cand))
+            cor.append('(%s)' % ' AND '.join(cand))
+            cor = list(filter(lambda item: item != '()', cor))
+        return ' OR '.join(cor)
+
+
+if __name__ == '__main__':
+    print(BooleanSearch.query(' '.join(sys.argv[1:])))

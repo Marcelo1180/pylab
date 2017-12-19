@@ -7,8 +7,8 @@ class BooleanSearch:
     wordList = open('biz.txt','r').read().split()
     _words = set(s.lower() for s in wordList)
 
-    def _xrange(x,y):
-        return iter(range(x,y))
+    def _xrange(x, y):
+        return iter(range(x, y))
 
     def _splitString(s):
         found = []
@@ -40,8 +40,8 @@ class BooleanSearch:
         wlen = len(warr)
         wres = []
         wres.append(warr)
-        for i in range(2,wlen+1):
-            for j in range(0,wlen+1-i):
+        for i in range(2, wlen+1):
+            for j in range(0, wlen+1-i):
                 # TODO: aeromundo y mundoaereo si se puede
                 # print(list(filter(lambda l: len(l) <= 3,warr[j:i+j])))
                 #

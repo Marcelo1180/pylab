@@ -1,4 +1,4 @@
-%matplotlib inline
+# %matplotlib inline
 from __future__ import print_function
 
 import sys
@@ -59,6 +59,5 @@ if __name__ == '__main__':
     # print(peliculas.loc[10, numcols])
     # saca la media, desviacion estandar, min, max de las columnas dadas
     # print(peliculas_num.describe())
-    hist=peliculas_num['duration'].plot
-    hist.hist()
-
+    HIST = peliculas_num['duration'].plot
+    HIST.hist()
