@@ -74,15 +74,18 @@ class BooleanSearch:
                 wnumero[1] = '(%s)' % ' AND '.join(wnumero[1].
                                                    replace(' y ', ' ').
                                                    split(' '))
+            # Agregando la palabra original por busqueda fonetica
+            if not words.isdigit():
+                wdat += [['nombre.fonetico:'+words]]
             # Comprobano si la palabra es numero,
             #  caso contrario enviar la palabra con fuzzy
-            wdat += [['nombre:'+n] for n in wnumero] if wnumero else [[words +
-                                                                       '~']]
+            wdat += [['nombre:'+n] for n in wnumero] \
+                if wnumero else [['nombre:'+words+'~']]
             # Agregando Palabra Descompuesta en los elementos de splitString
             # si la palabra sugerida es numero se debe colocar nombre: para,
             # que sea exacto
             wdat += list(map(lambda x: ['nombre:'+a if a.isdigit()
-                                        else a+'~' for a in x],
+                                        else 'nombre:'+a+'~' for a in x],
                              BooleanSearch._splitString(words)))
             wres.append(wdat)
         return wres

@@ -14,7 +14,7 @@ curl -XPUT "http://localhost:9200/fundempresa2" -d'
             },
             "x_sinonimo" : {
                "tokenizer": "whitespace",
-               "filter": ["lowercase", "word_delim", "my_synonym"]
+               "filter": ["lowercase", "word_delim", "my_synonym", "my_stemm"]
             },
             "x_numero" : {
                "tokenizer": "keyword",
