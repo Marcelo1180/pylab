@@ -1,5 +1,5 @@
-curl -XDELETE "http://localhost:9200/fundempresa2"
-curl -XPUT "http://localhost:9200/fundempresa2" -d'
+curl -XDELETE "http://localhost:9400/fundempresa2"
+curl -XPUT "http://localhost:9400/fundempresa2" -d'
 {
    "settings": {
       "analysis": {
@@ -43,7 +43,7 @@ curl -XPUT "http://localhost:9200/fundempresa2" -d'
             },
             "my_metaphone2": {
                "type": "phonetic",
-               "encoder": "doublemetaphone",
+               "encoder": "beidermorse",
                "languageset": "spanish"
             },
             "my_synonym" : {
